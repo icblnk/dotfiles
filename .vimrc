@@ -22,8 +22,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call neobundle#end()
 
@@ -34,13 +38,25 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-set t_Co=256
 syntax on
 set number
+let mapleader = ","
 let g:deoplete#enable_at_startup = 1
-let g:solarized_termcolors=256
-" set background=dark
-" colorscheme solarized
 
+" Solarized theme
+set t_Co=256
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+" Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" NerdTree
+nmap <leader>t :NERDTreeToggle<cr>
+
+" Neovim-qt Guifont command
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+
+Guifont DejaVu Sans Mono:h11
