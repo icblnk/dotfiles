@@ -56,7 +56,7 @@ let g:airline#extensions#tabline#enabled = 1
 " NerdTree
 nmap <leader>t :NERDTreeToggle<cr>
 
-" Neovim-qt Guifont command
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-
-Guifont DejaVu Sans Mono:h11
+" Neovim-qt Guifont command, to change the font
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
+" Set font on start
+let g:Guifont="DejaVu Sans Mono for Powerline:h13"
