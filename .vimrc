@@ -56,6 +56,9 @@ let g:airline#extensions#tabline#enabled = 1
 " NerdTree
 nmap <leader>t :NERDTreeToggle<cr>
 
+" Clipboard
+set clipboard=unnamedplus
+
 " Neovim-qt Guifont command, to change the font
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
