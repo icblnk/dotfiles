@@ -81,6 +81,8 @@ flags = [
 './tests/gmock',
 '-isystem',
 './tests/gmock/include',
+'-I',
+'/usr/include/i386-linux-gnu/qt5',
 ]
 
 

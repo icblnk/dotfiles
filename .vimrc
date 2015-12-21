@@ -20,7 +20,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdtree'
@@ -74,4 +73,20 @@ map <silent> <F3> :call BufferList()<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " You complete me
-let g:ycm_global_ycm_extra_conf = '/home/iglinchuk/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" Configure buffers
+" This allows buffers to be hidden.
+set hidden
+
+" To open a new empty buffer
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
