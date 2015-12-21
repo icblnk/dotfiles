@@ -27,6 +27,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'roblillack/vim-bufferlist'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call neobundle#end()
@@ -63,3 +66,12 @@ set clipboard=unnamedplus
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
 let g:Guifont="DejaVu Sans Mono for Powerline:h13"
+
+" Buffer list
+map <silent> <F3> :call BufferList()<CR>
+
+" Tag list
+nmap <F8> :TagbarToggle<CR>
+
+" You complete me
+let g:ycm_global_ycm_extra_conf = '/home/iglinchuk/.vim/.ycm_extra_conf.py'
