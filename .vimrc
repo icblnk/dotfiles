@@ -26,10 +26,10 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'roblillack/vim-bufferlist'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+NeoBundle 'junegunn/fzf.vim'
 
 call neobundle#end()
 
@@ -66,8 +66,9 @@ command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
 let g:Guifont="DejaVu Sans Mono for Powerline:h13"
 
-" Buffer list
-map <silent> <F3> :call BufferList()<CR>
+" FuzzyFinder
+nmap <silent> <C-n> :Buffers<CR>
+nmap <silent> <C-p> :Files<CR>
 
 " Tag list
 nmap <F8> :TagbarToggle<CR>
@@ -90,3 +91,4 @@ nmap <leader>h :bprevious<CR>
 
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
+

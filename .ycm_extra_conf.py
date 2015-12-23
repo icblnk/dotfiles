@@ -83,6 +83,8 @@ flags = [
 './tests/gmock/include',
 '-I',
 '/usr/include/i386-linux-gnu/qt5',
+'-I',
+'/usr/include/x86_64-linux-gnu/qt5'
 ]
 
 
