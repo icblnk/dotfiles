@@ -75,6 +75,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " You complete me
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_show_diagnostics_ui = 0
+nmap <silent> <C-j> :YcmCompleter GoTo<CR>
+nmap <silent> <C-]> :Tags<CR>
 
 " Configure buffers
 " This allows buffers to be hidden.
