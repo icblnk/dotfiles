@@ -64,7 +64,7 @@ set clipboard=unnamedplus
 " Neovim-qt Guifont command, to change the font
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
-let g:Guifont="DejaVu Sans Mono for Powerline:h13"
+let g:Guifont="DejaVu Sans Mono for Powerline:h11"
 
 " FuzzyFinder
 nmap <silent> <C-n> :Buffers<CR>
