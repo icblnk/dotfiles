@@ -23,10 +23,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'sheerun/vim-wombat-scheme'
 NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'junegunn/fzf.vim'
@@ -45,11 +45,9 @@ set number
 let mapleader = ","
 let g:deoplete#enable_at_startup = 1
 
-" Solarized theme
+" theme
 set t_Co=256
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
+colorscheme wombat
 
 " Airline
 let g:airline_powerline_fonts = 1
