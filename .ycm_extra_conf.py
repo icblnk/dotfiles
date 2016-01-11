@@ -84,7 +84,9 @@ flags = [
 '-I',
 '/usr/include/i386-linux-gnu/qt5',
 '-I',
-'/usr/include/x86_64-linux-gnu/qt5'
+'/usr/include/x86_64-linux-gnu/qt5',
+'-I',
+'/usr/include/qt5'
 ]
 
 
