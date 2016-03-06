@@ -74,6 +74,7 @@ nmap <F8> :TagbarToggle<CR>
 " You complete me
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_confirm_extra_conf = 0
 nmap <silent> <C-j> :YcmCompleter GoTo<CR>
 nmap <silent> <C-]> :Tags<CR>
 
@@ -92,4 +93,3 @@ nmap <leader>h :bprevious<CR>
 
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
-
