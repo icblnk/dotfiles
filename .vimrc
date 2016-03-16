@@ -30,6 +30,7 @@ NeoBundle 'sheerun/vim-wombat-scheme'
 NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'peterhoeg/vim-qml'
 
 call neobundle#end()
 
