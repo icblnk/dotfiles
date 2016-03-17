@@ -104,3 +104,4 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 :nnoremap <A-j> <C-w>j
 :nnoremap <A-k> <C-w>k
 :nnoremap <A-l> <C-w>l
+:tnoremap <Esc> <C-\><C-n>
