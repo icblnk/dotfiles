@@ -171,4 +171,4 @@ bar {
 }
 
 # Lock keybinding
-bindsym Ctrl+$alt+l exec i3lock
+bindsym Ctrl+$alt+l exec i3lock -c 2a2a2a
