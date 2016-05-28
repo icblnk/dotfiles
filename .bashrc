@@ -97,3 +97,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Execute machine-specific commands
+if [ -f ~/.comp_specific ]; then
+    . ~/.comp_specific
+fi
+
+# Add directory to include to $PATH
+if [ -d ~/.custom_bin ]; then
+    PATH=~/.custom_bin:$PATH
+fi
