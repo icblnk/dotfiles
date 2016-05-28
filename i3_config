@@ -107,13 +107,13 @@ bindsym Mod4+Shift+minus move scratchpad
 bindsym Mod4+minus scratchpad show
 
 # Workspaces
-set $ws1 "1:Web "
-set $ws2 "2:Editor "
-set $ws3 "3:Term "
-set $ws4 "4:Msg "
-set $ws5 "5:FS "
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
 set $ws6 "6:Etc"
-set $ws10 "10:Music "
+set $ws10 "10:"
 
 # switch to workspace
 bindsym Mod4+1 workspace $ws1
