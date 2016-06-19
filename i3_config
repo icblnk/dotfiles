@@ -192,7 +192,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
         tray_output primary
 	colors {
 		background $bg-color
@@ -212,9 +212,9 @@ exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:alt_shift
 
 # Multimedia keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -D pulse set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
+bindsym XF86AudioMute exec amixer set Master toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness

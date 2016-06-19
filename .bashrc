@@ -22,6 +22,7 @@ HISTFILESIZE=10000
 export TERM=xterm-256color
 
 export EDITOR=nvim
+export TERMINAL=lxterminal
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
