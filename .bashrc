@@ -107,3 +107,5 @@ fi
 if [ -d ~/.custom_bin ]; then
     PATH=~/.custom_bin:$PATH
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
