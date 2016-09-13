@@ -212,9 +212,9 @@ exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:alt_shift
 
 # Multimedia keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
