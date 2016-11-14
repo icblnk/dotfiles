@@ -31,6 +31,7 @@ NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'peterhoeg/vim-qml'
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
@@ -45,6 +46,7 @@ syntax on
 set number
 let mapleader = ","
 let g:deoplete#enable_at_startup = 1
+set shiftwidth=4
 
 " theme
 set t_Co=256
