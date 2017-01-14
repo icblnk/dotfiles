@@ -20,9 +20,7 @@ HISTSIZE=5000
 HISTFILESIZE=10000
 
 export TERM=xterm-256color
-
 export EDITOR=nvim
-export TERMINAL=lxterminal
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -43,6 +41,7 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
