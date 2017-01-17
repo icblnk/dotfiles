@@ -41,7 +41,7 @@ values."
      ;; better-defaults
      emacs-lisp
      (c-c++ :variables c-c++-enable-clang-support t)
-     ;; git
+     git
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -133,8 +133,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Dejavu Sans Mono"
-                               :size 16
+   ;; dotspacemacs-default-font '("Droid Sans Mono for Powerline"
+   dotspacemacs-default-font '("DejaVu Sans Mono for Powerline"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.6)
@@ -306,7 +307,7 @@ you should place your code here."
    c-basic-offset 4)
   (setq-default tab-width 4)
   ;;(push '(other . "stroustrup") c-default-style)
-
+  (global-linum-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
