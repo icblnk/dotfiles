@@ -21,3 +21,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Neovim
 alias vim=nvim
+
+# emacs client
+alias e='emacsclient --no-wait'
