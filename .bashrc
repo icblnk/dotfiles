@@ -107,4 +107,6 @@ if [ -d ~/.custom_bin ]; then
     PATH=~/.custom_bin:$PATH
 fi
 
+# fzf
+export FZF_TMUX="TRUE"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
