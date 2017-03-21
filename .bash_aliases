@@ -24,3 +24,6 @@ alias vim=nvim
 
 # emacs client
 alias e='emacsclient --no-wait'
+alias en='emacs -nw'
+
+alias weather='curl http://wttr.in/kiev'

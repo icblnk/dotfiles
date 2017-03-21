@@ -44,6 +44,7 @@ values."
      emacs-lisp
      (c-c++ :variables c-c++-enable-clang-support t)
      git
+	 gnus
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -307,6 +308,7 @@ you should place your code here."
    c-default-style "bsd"
    c-basic-offset 4)
   (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
   ;;(push '(other . "stroustrup") c-default-style)
   (global-linum-mode)
   )
