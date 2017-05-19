@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+	 html
      python
      javascript
      ;; ----------------------------------------------------------------
@@ -309,8 +310,9 @@ you should place your code here."
    c-basic-offset 4)
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode t)
-  ;;(push '(other . "stroustrup") c-default-style)
-  (global-linum-mode)
+  (setq-default dotspacemacs-line-numbers t)
+  (setq-default dotspacemacs-distinguish-gui-tab t)
+  (require 'epa-file) (epa-file-enable)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
