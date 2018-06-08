@@ -215,6 +215,9 @@ exec --no-startup-id "xinput --set-prop 10 273 1.3"
 exec --no-startup-id "xinput --set-prop 10 274 1.5"
 exec --no-startup-id "xset r rate 200"
 
+#Background
+exec --no-startup-id xsetroot -solid "#333333"
+
 # Multimedia keys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% 

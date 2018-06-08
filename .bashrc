@@ -19,7 +19,7 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=10000
 
-export TERM=xterm-256color
+export TERM=tmux-256color
 export EDITOR=nvim
 
 # check the window size after each command and, if necessary,
@@ -105,6 +105,11 @@ fi
 # Add directory to include to $PATH
 if [ -d ~/.custom_bin ]; then
     PATH=~/.custom_bin:$PATH
+fi
+
+# Add directory to include to $PATH
+if [ -d ~/.local/bin ]; then
+    PATH=~/.local/bin:$PATH
 fi
 
 # fzf
