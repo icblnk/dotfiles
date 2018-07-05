@@ -26,4 +26,10 @@ alias vim=nvim
 alias e='emacsclient --no-wait'
 alias en='emacs -nw'
 
-alias weather='curl http://wttr.in/kiev'
+######### Functions ############################################################
+genpasswdhash() {
+    read -sp 'Password: ' passwd
+    echo ""
+    echo -n "Hash: "
+    python3 -c 'import crypt; print(crypt.crypt("$passwd", crypt.mksalt(crypt.METHOD_SHA512)))'
+}
