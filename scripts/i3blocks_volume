@@ -6,7 +6,7 @@ volume=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )
 mute=$(pactl list sinks | grep '^[[:space:]]Mute:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's/[[:blank:]]Mute: //')
 
 if [[ $mute == "yes" ]]; then
-    echo ""
+    echo "X"
 else
     echo "$volume"
 fi

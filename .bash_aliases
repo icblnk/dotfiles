@@ -2,8 +2,6 @@
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -26,10 +24,36 @@ alias vim=nvim
 alias e='emacsclient --no-wait'
 alias en='emacs -nw'
 
+# ===== Make ssh-agent to run system-wide ======================================
+SSH_ENV="$HOME/.ssh/env"
+
+function start_agent {
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+    chmod 600 "$SSH_ENV"
+    . "$SSH_ENV" > /dev/null
+}
+
+if [[ -f "$SSH_ENV" ]]; then
+    . "$SSH_ENV" > /dev/null
+    if [[ ! -z "$SSH_AGENT_PID" ]]; then
+        ps -ef | grep "$SSH_AGENT_PID" | grep "ssh-agent$" > /dev/null || {
+            start_agent;
+        }
+    fi
+else
+    start_agent;
+fi
+# ==============================================================================
+
 ######### Functions ############################################################
 genpasswdhash() {
     read -sp 'Password: ' passwd
     echo ""
     echo -n "Hash: "
     python3 -c 'import crypt; print(crypt.crypt("$passwd", crypt.mksalt(crypt.METHOD_SHA512)))'
+}
+
+set_keyboard() {
+    xset r rate 200
+    setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 }
