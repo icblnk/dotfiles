@@ -220,9 +220,9 @@ exec --no-startup-id xsetroot -solid "#333333"
 
 # Multimedia keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec ~/.scripts/set_volume +5%
+bindsym XF86AudioLowerVolume exec ~/.scripts/set_volume -5%
+bindsym XF86AudioMute exec ~/.scripts/set_volume toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness

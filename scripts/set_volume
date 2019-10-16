@@ -1,0 +1,10 @@
+#!/bin/sh
+
+param=$1
+sink_num=$(pactl list sinks | grep 'Sink #' | head -n 1 | grep -o '[[:digit:]]*')
+
+if [[ $param == "toggle" ]]; then
+    pactl set-sink-mute $sink_num toggle
+else
+    pactl set-sink-volume $sink_num $param
+fi
