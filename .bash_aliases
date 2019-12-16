@@ -24,6 +24,8 @@ alias vim=nvim
 alias e='emacsclient --no-wait'
 alias en='emacs -nw'
 
+alias cat='bat -p --paging never'
+
 # ===== Make ssh-agent to run system-wide ======================================
 SSH_ENV="$HOME/.ssh/env"
 
@@ -56,4 +58,17 @@ genpasswdhash() {
 set_keyboard() {
     xset r rate 200
     setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
+}
+
+monitor_on() {
+    xrandr | grep "DP-3 connected" > /dev/null
+    if [[ $? -eq 0 ]]; then
+	xrandr --output eDP-1 --off --output DP-3 --mode 2560x1440 --rate 144 --primary
+    else
+	xrandr --output DP-1 --auto --primary --right-of eDP-1 --output HDMI-2 --auto --right-of DP-1
+    fi
+}
+
+monitor_off() {
+    xrandr --output DP-1 --off --output HDMI-2 --off --output DP-3 --off --output eDP-1 --auto --primary
 }

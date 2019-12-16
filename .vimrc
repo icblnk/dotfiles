@@ -23,15 +23,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jceb/vim-orgmode'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'majutsushi/tagbar'
+" NeoBundle 'jceb/vim-orgmode'
+" NeoBundle 'tpope/vim-speeddating'
+" NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sheerun/vim-wombat-scheme'
-NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
+" NeoBundle 'Valloric/YouCompleteMe', { 'do': './install --clang-completer' }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'peterhoeg/vim-qml'
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
@@ -53,7 +53,7 @@ set t_Co=256
 colorscheme wombat
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 
 " NerdTree

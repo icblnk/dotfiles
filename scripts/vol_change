@@ -1,0 +1,15 @@
+#!/bin/sh
+
+opt=$1
+sink_line=$(pactl list sinks | grep "Sink #")
+pattern="#([0-9]+)$"
+
+if [[ $sink_line =~ $pattern ]]; then
+    if [[ $opt == "up" ]]; then
+	pactl set-sink-volume ${BASH_REMATCH[1]} +5%
+    elif [[ $opt == "down" ]]; then
+	pactl set-sink-volume ${BASH_REMATCH[1]} -5%
+    elif [[ $opt == "toggle" ]]; then
+	pactl set-sink-mute ${BASH_REMATCH[1]} toggle
+    fi
+fi
