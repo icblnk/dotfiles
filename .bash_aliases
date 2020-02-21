@@ -78,7 +78,7 @@ __prompt_command() {
     local hasjobs=$(jobs -p)
     local exit_code_text=""
     if [[ $exit_code -ne 0 ]]; then
-	exit_code_text="_\e[91m$exit_code\e[39m_ "
+	exit_code_text="[\[\e[91m\]$exit_code\[\e[39m\]] "
     fi
-    PS1="${exit_code_text}\e[32m\u\e[39m\e[94m@\e[39m\e[36m\h\e[39m${hasjobs:+(\e[93m\j\e[39m)}:\w\$ "
+    PS1="${exit_code_text}\[\e[32m\]\u\[\e[39m\]\[\e[94m\]@\[\e[39m\]\[\e[36m\]\h\[\e[39m\]${hasjobs:+(\[\e[93m\]\j\[\e[39m\])}:\w\$ "
 }
