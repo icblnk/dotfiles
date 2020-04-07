@@ -82,3 +82,9 @@ __prompt_command() {
     fi
     PS1="${exit_code_text}\[\e[32m\]\u\[\e[39m\]\[\e[94m\]@\[\e[39m\]\[\e[36m\]\h\[\e[39m\]${hasjobs:+(\[\e[93m\]\j\[\e[39m\])}:\w\$ "
 }
+
+function sim_cpu_load() {
+    for i in $(seq 32 $END) ; do while : ; do : ; done & done
+    read -n 1 -s -r -p "Press any key to finish\n"
+    kill $(jobs -p)
+}

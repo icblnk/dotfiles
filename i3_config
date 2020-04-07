@@ -74,10 +74,10 @@ bindsym Mod4+Shift+Up move up
 bindsym Mod4+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod1+Shift+h split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+bindsym Mod1+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
@@ -206,7 +206,7 @@ bar {
 }
 
 # Lock keybinding
-bindsym Ctrl+$alt+l exec ~/.scripts/lock_screen
+bindsym Ctrl+Mod4+l exec ~/.scripts/lock_screen
 
 # Keyboard layout switch
 exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle"

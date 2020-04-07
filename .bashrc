@@ -69,3 +69,5 @@ fi
 # fzf
 export FZF_TMUX="TRUE"
 [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
