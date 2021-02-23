@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 " NeoBundle 'jceb/vim-orgmode'
 " NeoBundle 'tpope/vim-speeddating'
@@ -12,8 +13,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rhysd/vim-clang-format'
 Plug 'preservim/nerdcommenter'
-" Plug 'arakashic/chromatica.nvim'
-" NeoBundle 'scrooloose/syntastic'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'mhinz/vim-startify'
+Plug 'mfukar/robotframework-vim'
 
 call plug#end()
 
@@ -22,8 +24,9 @@ filetype plugin indent on
 
 syntax on
 set number relativenumber
+"set cursorline
 let mapleader = ","
-set shiftwidth=4
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " theme
 set t_Co=256
@@ -43,7 +46,6 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 " Clipboard
-" set clipboard=unnamedplus
 set clipboard+=unnamedplus
 
 " FuzzyFinder
@@ -61,6 +63,9 @@ nmap <F8> :TagbarToggle<CR>
 " This allows buffers to be hidden.
 set hidden
 
+" Show trailing spaces, etc.
+set list
+
 "----------------------------------------------------------
 
 " Some servers have issues with backup files, see #649
@@ -68,7 +73,7 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+" set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
@@ -124,17 +129,29 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+" map to <Leader>cf in C++ code
+" autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+" autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" map to <Leader>cf in Python code
+nmap <Leader>cf <Plug>(coc-format)
+vmap <Leader>cf <Plug>(coc-format-selected)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 "----------------------------------------------------------
 "
 
-
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
 " To open a new empty buffer
 nmap <C-T> :enew<cr>

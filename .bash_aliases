@@ -61,16 +61,17 @@ set_keyboard() {
 }
 
 monitor_on() {
-    xrandr | grep "DP-3 connected" > /dev/null
+    xrandr | grep "2560x1440" > /dev/null
     if [[ $? -eq 0 ]]; then
-	xrandr --output eDP-1 --off --output DP-3 --mode 2560x1440 --rate 144 --primary
+        xrandr --output eDP-1-2 --off --output DP-1-6 --mode 2560x1440 --rate 165 --dpi 104/DP-1-6 --primary
     else
-	xrandr --output DP-1 --auto --primary --right-of eDP-1 --output HDMI-2 --auto --right-of DP-1
+        xrandr --output DP-1-4 --auto --primary --right-of eDP-1-2 --output DP-3 --auto --right-of DP-1-4 --output eDP-1-2 --auto
+        #xrandr --output DP-1-4 --auto --primary --right-of eDP-1-2 --output HDMI-1-2 --auto --right-of DP-1-4
     fi
 }
 
 monitor_off() {
-    xrandr --output DP-1 --off --output HDMI-2 --off --output DP-3 --off --output eDP-1 --auto --primary
+    xrandr --output DP-1-4 --off --output HDMI-1-2 --off --output DP-1-6 --off --output DP-3 --off --output eDP-1-2 --auto --primary --dpi 95
 }
 
 __prompt_command() {
@@ -78,13 +79,13 @@ __prompt_command() {
     local hasjobs=$(jobs -p)
     local exit_code_text=""
     if [[ $exit_code -ne 0 ]]; then
-	exit_code_text="[\[\e[91m\]$exit_code\[\e[39m\]] "
+        exit_code_text="[\[\e[91m\]$exit_code\[\e[39m\]] "
     fi
     PS1="${exit_code_text}\[\e[32m\]\u\[\e[39m\]\[\e[94m\]@\[\e[39m\]\[\e[36m\]\h\[\e[39m\]${hasjobs:+(\[\e[93m\]\j\[\e[39m\])}:\w\$ "
 }
 
 function sim_cpu_load() {
     for i in $(seq 32 $END) ; do while : ; do : ; done & done
-    read -n 1 -s -r -p "Press any key to finish\n"
+    read -n 1 -s -r -p "Press any key to finish"
     kill $(jobs -p)
 }
