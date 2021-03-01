@@ -54,6 +54,10 @@ super + ctrl + {m,x,y,z}
 super + shift + p
         ~/.scripts/rofi-powermenu.sh
 
+# configure lock screen hotkey
+super + ctrl + l
+        ~/.scripts/lock_screen
+
 #
 # focus/swap
 #
