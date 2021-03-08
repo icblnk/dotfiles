@@ -25,6 +25,7 @@ alias e='emacsclient --no-wait'
 alias en='emacs -nw'
 
 alias cat='bat -p --paging never'
+alias less='bat --paging always -p'
 
 # ===== Make ssh-agent to run system-wide ======================================
 SSH_ENV="$HOME/.ssh/env"
