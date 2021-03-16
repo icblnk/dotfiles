@@ -415,7 +415,7 @@ font:
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -425,7 +425,7 @@ font:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
   #url:
     # URL launcher
@@ -680,7 +680,11 @@ font:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
+  # Use Ctrl+Tab to send "Ctrl+A,n" for next window in tmux.
+  - { key: Tab,        mods: Control,                    chars: "\x01\x6e" }
+  # Use Ctrl+Shift+Tab to send "Ctrl+A,p" for previous window in tmux.
+  - { key: Tab,        mods: Shift|Control,              chars: "\x01\x70" }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }

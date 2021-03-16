@@ -21,15 +21,15 @@ case $chosen in
         ~/.scripts/lock_screen
         ;;
     $option1)
-        loginctl reboot
+        sudo reboot
         ;;
     $option2)
-        loginctl poweroff
+        sudo poweroff
         ;;
     $option3)
         killall -u $USER
         ;;
     $option4)
-        loginctl suspend
+        sudo systemctl suspend
         ;;
 esac
