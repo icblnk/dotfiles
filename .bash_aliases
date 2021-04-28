@@ -90,3 +90,32 @@ function sim_cpu_load() {
     read -n 1 -s -r -p "Press any key to finish"
     kill $(jobs -p)
 }
+
+function kp() {
+    local pids=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
+    for pid in $pids
+    do
+        kill $pid
+    done
+}
+
+function cd() {
+  if [[ $# -eq 0 ]]
+  then
+  pushd ${HOME} > /dev/null
+  else
+  pushd "$1" > /dev/null
+  fi
+}
+
+function bd() {
+  if [[ $# -eq 0 ]]
+  then
+    popd > /dev/null
+  else
+    for i in $(seq ${1})
+    do
+      popd > /dev/null
+    done
+  fi
+}

@@ -9,7 +9,7 @@ pgrep -x picom > /dev/null || picom --experimental-backends -b
 
 feh --bg-fill ~/.config/wallpaper.jpg
 
-bspc monitor eDP-1-2 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor DP-1-6 -d 0 1 2 3 4 5 6 7 8 9
 
 bspc config border_width         3
 bspc config window_gap          10
@@ -42,4 +42,4 @@ bspc config active_border_color "#252e77"
 bspc config urgent_border_color "#e06c75"
 
 bspc rule -a Chromium desktop='^1' follow=on
-bspc rule -a Spotify desktop='^10' follow=on
+bspc rule -a Spotify desktop='^9' follow=on
