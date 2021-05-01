@@ -28,14 +28,7 @@ shopt -s checkwinsize
 
 [ -f ~/.bash_functions.sh ] && source ~/.bash_functions.sh
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -54,25 +47,22 @@ if ! shopt -oq posix; then
 fi
 
 # Execute machine-specific commands
-if [ -f ~/.comp_specific ]; then
-    . ~/.comp_specific
-fi
+[ -f ~/.comp_specific ] && source ~/.comp_specific
 
 # Add directory to include to $PATH
-if [ -d ~/.custom_bin ]; then
-    PATH=~/.custom_bin:$PATH
-fi
+[ -d ~/.custom_bin ] && PATH=~/.custom_bin:$PATH
 
 # Add directory to include to $PATH
-if [ -d ~/.local/bin ]; then
-    PATH=~/.local/bin:$PATH
-fi
+[ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 
 # fzf
 export FZF_TMUX="TRUE"
 [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# tmux git status bar
+[ -n "$TMUX" ] && [ -f ~/.tmux-git/tmux-git.sh ] \
+    && source ~/.tmux-git/tmux-git.sh
 
 # ===== Make ssh-agent to run system-wide ======================================
 SSH_ENV="$HOME/.ssh/env"
