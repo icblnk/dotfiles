@@ -26,6 +26,8 @@ export EDITOR=nvim
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+[ -f ~/.bash_functions.sh ] && source ~/.bash_functions.sh
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -71,3 +73,23 @@ export FZF_TMUX="TRUE"
 [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ===== Make ssh-agent to run system-wide ======================================
+SSH_ENV="$HOME/.ssh/env"
+
+function start_agent {
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+    chmod 600 "$SSH_ENV"
+    . "$SSH_ENV" > /dev/null
+}
+
+if [[ -f "$SSH_ENV" ]]; then
+    . "$SSH_ENV" > /dev/null
+    if [[ ! -z "$SSH_AGENT_PID" ]]; then
+        ps -ef | grep "$SSH_AGENT_PID" | grep "ssh-agent$" > /dev/null || {
+            start_agent;
+        }
+    fi
+else
+    start_agent;
+fi
