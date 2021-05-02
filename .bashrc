@@ -57,14 +57,14 @@ fi
 
 # fzf
 export FZF_TMUX="TRUE"
-[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/key-bindings.bash ] \
+    && source /usr/share/fzf/key-bindings.bash
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # tmux git status bar
-[ -n "$TMUX" ] && [ -f ~/.tmux-git/tmux-git.sh ] \
-    && source ~/.tmux-git/tmux-git.sh
+[ -n "$TMUX" ] && [ -f ~/.tmux-git.sh ] && source ~/.tmux-git.sh
 
-# ===== Make ssh-agent to run system-wide ======================================
+# Make ssh-agent to run system-wide
 SSH_ENV="$HOME/.ssh/env"
 
 function start_agent {

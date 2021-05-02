@@ -3,6 +3,10 @@ set_keyboard() {
     setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 }
 
+get_primary_monitor() {
+    xrandr | grep " primary" | awk '{print $1;}'
+}
+
 get_connected_monitors() {
     xrandr | grep " connected" | awk '{print $1;}'
 }
