@@ -1,3 +1,14 @@
+__prompt_command() {
+    local exit_code="$?"
+    local exit_code_text=""
+    [[ $exit_code -ne 0 ]] && exit_code_text="[\[\e[91m\]$exit_code\[\e[39m\]] "
+    # Skip tmux status bar jobs
+    local jobs_count=$(jobs | grep -v "tmux set-window-option" | wc -l)
+    local jobs_count_text=""
+    [[ $jobs_count -gt 0 ]] && jobs_count_text="(\[\e[93m\]$jobs_count\[\e[39m\])"
+    PS1="${exit_code_text}\[\e[32m\]\u\[\e[39m\]\[\e[94m\]@\[\e[39m\]\[\e[36m\]\h\[\e[39m\]$jobs_count_text:\w\$ "
+}
+
 set_keyboard() {
     xset r rate 200
     setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
@@ -28,16 +39,6 @@ monitor_on() {
 monitor_off() {
     laptop_monitor=$(get_laptop_monitor_name)
     xrandr --output DP-1-4 --off --output HDMI-1-2 --off --output DP-1-6 --off --output DP-3 --off --output $laptop_monitor --auto --primary --dpi 95
-}
-
-__prompt_command() {
-    local exit_code="$?"
-    local hasjobs=$(jobs -p)
-    local exit_code_text=""
-    if [[ $exit_code -ne 0 ]]; then
-        exit_code_text="[\[\e[91m\]$exit_code\[\e[39m\]] "
-    fi
-    PS1="${exit_code_text}\[\e[32m\]\u\[\e[39m\]\[\e[94m\]@\[\e[39m\]\[\e[36m\]\h\[\e[39m\]${hasjobs:+(\[\e[93m\]\j\[\e[39m\])}:\w\$ "
 }
 
 function sim_cpu_load() {
