@@ -42,7 +42,7 @@ monitor_off() {
 }
 
 function sim_cpu_load() {
-    for i in $(seq 32 $END) ; do while : ; do : ; done & done
+    for i in $(seq $(($(nproc --all) * 2)) $END); do while : ; do : ; done & done
     read -n 1 -s -r -p "Press any key to finish"
     kill $(jobs -p)
 }

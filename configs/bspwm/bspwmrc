@@ -7,7 +7,7 @@ bspc rule -r "*"
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
 killall -q polybar > /dev/null
-MONITOR=DP-1-6 polybar main &
+MONITOR=$(get_primary_monitor) polybar main &
 #MONITOR=$(get_laptop_monitor_name) polybar main &
 #MONITOR=DP-1-4 polybar main &
 #MONITOR=$(get_laptop_monitor_name) polybar aux &
@@ -16,7 +16,7 @@ pgrep -x picom > /dev/null || picom --experimental-backends -b
 
 feh --bg-fill ~/.config/wallpaper.jpg
 
-bspc monitor DP-1-6 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor $(get_primary_monitor) -d 1 2 3 4 5 6 7 8 9 10
 #bspc monitor $(get_laptop_monitor_name) -d 1 2 3 4 5 6 7 8 9 10
 #bspc monitor $(get_laptop_monitor_name) -d 9 10
 #bspc monitor DP-1-4 -d 1 2 3 8

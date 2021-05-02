@@ -38,6 +38,14 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+super + bracket{left,right}
+    D=$(bspc query -D -d); \
+    M=$(bspc query -M -m {prev,next}); \
+    bspc desktop -m $M; \
+    bspc query -m $M -T | jshon -e desktops -a -e name -u | sort -n \
+        | xargs bspc monitor $M -o; \
+    bspc desktop -f $D
+
 #
 # state/flags
 #
