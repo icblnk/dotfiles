@@ -23,7 +23,13 @@ get_connected_monitors() {
 }
 
 get_laptop_monitor_name() {
-    echo $(get_connected_monitors) | grep eDP
+    for monitor in $(get_connected_monitors)
+    do
+        if [[ $monitor == eDP* ]]; then
+            echo $monitor
+            return
+        fi
+    done
 }
 
 monitor_on() {

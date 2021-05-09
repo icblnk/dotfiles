@@ -1,0 +1,39 @@
+---
+Language:  Cpp
+Standard:  Auto
+BasedOnStyle:  Google
+AccessModifierOffset: -2
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction:  true
+ColumnLimit:      120
+IndentWidth:      4
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Includes sorting
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  # C Headers in "" with extension.
+  - Regex:           '"([A-Za-z0-9.\/-_])+\.h"'
+    Priority:        5
+  # Other Headers in "" with extension.
+  - Regex:           '"([A-Za-z0-9.\/-_])+"'
+    Priority:        6
+  # Headers in <> from specific external libraries.
+  - Regex:           '<((gmock|gtest|boost|catch2))\/([A-Za-z0-9.\/-_])+>'
+    Priority:        4
+  # Headers in <> with extension.
+  - Regex:           '<([A-Za-z0-9.\/-_])+\.hpp>'
+    Priority:        3
+  # C Headers in <>.
+  - Regex:           '<([A-Za-z0-9\/-_])+\.h>'
+    Priority:        1
+  # Headers in <> without extension.
+  - Regex:           '<([A-Za-z0-9\/-_])+>'
+    Priority:        2
+...
