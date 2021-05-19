@@ -47,7 +47,7 @@ if ! shopt -oq posix; then
 fi
 
 # Execute machine-specific commands
-[ -f ~/.comp_specific ] && source ~/.comp_specific
+[ -f ~/.host_specific.sh ] && source ~/.host_specific.sh
 
 # Add directory to include to $PATH
 [ -d ~/.custom_bin ] && PATH=~/.custom_bin:$PATH

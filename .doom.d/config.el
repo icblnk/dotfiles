@@ -35,6 +35,9 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(add-hook! lsp-mode
+  (defalias '+lookup/references 'lsp-find-references))
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
