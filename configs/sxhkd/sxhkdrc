@@ -146,3 +146,8 @@ XF86MonBrightnessUp
     xbacklight -inc 5
 XF86MonBrightnessDown
     xbacklight -dec 5
+
+XF86AudioMute
+    ~/.scripts/vol_change toggle
+XF86Audio{Raise,Lower}Volume
+    ~/.scripts/vol_change {up,down}

@@ -10,9 +10,10 @@ killall -q polybar > /dev/null
 MONITOR=$(get_primary_monitor) polybar main &
 #MONITOR=$(get_laptop_monitor_name) polybar main &
 #MONITOR=DP-1-4 polybar main &
-#MONITOR=$(get_laptop_monitor_name) polybar aux &
-#MONITOR=DP-3 polybar aux &
-pgrep -x picom > /dev/null || picom --experimental-backends -b
+MONITOR=$(get_laptop_monitor_name) polybar aux &
+MONITOR=DP-3 polybar aux &
+#pgrep -x picom > /dev/null || picom --experimental-backends -b
+xsetroot -cursor_name left_ptr
 
 feh --bg-fill ~/.config/wallpaper.jpg
 
@@ -32,7 +33,7 @@ bspc config right_padding        0
 
 bspc config single_monocle       false
 bspc config click_to_focus       none
-bspc config focus_follows_pointer true
+#bspc config focus_follows_pointer true
 
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
