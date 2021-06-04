@@ -22,6 +22,12 @@ get_connected_monitors() {
     xrandr | grep " connected" | awk '{print $1;}'
 }
 
+get_active_monitors() {
+    xrandr | grep " connected" | \
+        egrep "[[:digit:]]+x[[:digit:]]+\+[[:digit:]]+\+[[:digit:]]+" | \
+        awk '{print $1;}'
+}
+
 get_laptop_monitor_name() {
     for monitor in $(get_connected_monitors)
     do

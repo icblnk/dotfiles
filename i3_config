@@ -155,7 +155,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
     #}
 #}
 
-exec --no-startup-id ~/.scripts/run_polybar.sh
+exec_always --no-startup-id ~/.scripts/run_polybar.sh
 
 # Lock keybinding
 bindsym Ctrl+Mod4+l exec ~/.scripts/lock_screen

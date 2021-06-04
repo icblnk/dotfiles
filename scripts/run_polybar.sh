@@ -6,7 +6,7 @@ killall polybar 2> /dev/null
 
 primary_monitor=$(get_primary_monitor)
 
-for monitor in $(get_connected_monitors);
+for monitor in $(get_active_monitors);
 do
     if [ "$monitor" = "$primary_monitor" ];
     then
