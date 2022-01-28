@@ -263,7 +263,7 @@ format-volume = <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = 
 label-muted-foreground = #666
 
 [module/battery]
