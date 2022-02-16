@@ -38,19 +38,24 @@ get_laptop_monitor_name() {
     done
 }
 
+get_aux_monitors() {
+    get_connected_monitors | grep -v $(get_laptop_monitor_name)
+}
+
 monitor_on() {
     laptop_monitor=$(get_laptop_monitor_name)
-    xrandr | grep "2560x1440" > /dev/null
-    if [[ $? -eq 0 ]]; then
-        xrandr --output $laptop_monitor --off --output DP-1-6 --mode 2560x1440 --rate 165 --dpi 104/DP-1-6 --primary
+    connected_monitors_num=$(get_aux_monitors | wc -l)
+    if [[ $connected_monitors_num -eq 1 ]]; then
+        local main_monitor="$(get_aux_monitors)"
+        xrandr --output $laptop_monitor --off --output $main_monitor --mode 2560x1440 --rate 165 --dpi 104/$main_monitor --primary
     else
-        xrandr --output DP-1-4 --auto --primary --right-of $laptop_monitor --output DP-3 --auto --right-of DP-1-4 --output $laptop_monitor --auto
+        xrandr --output DP-1 --auto --dpi 104 --primary --right-of $laptop_monitor --output DP-3 --auto --dpi 104 --right-of DP-1 --output $laptop_monitor --auto
     fi
 }
 
 monitor_off() {
     laptop_monitor=$(get_laptop_monitor_name)
-    xrandr --output DP-1-4 --off --output HDMI-1-2 --off --output DP-1-6 --off --output DP-3 --off --output $laptop_monitor --auto --primary --dpi 95
+    xrandr --output DP-1 --off --output DP-3 --off --output $laptop_monitor --auto --primary --dpi 95
 }
 
 function sim_cpu_load() {
