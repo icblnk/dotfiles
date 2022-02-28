@@ -11,7 +11,7 @@ __prompt_command() {
 
 set_keyboard() {
     xset r rate 200
-    setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
+    setxkbmap -model pc105 -layout us,ua -option grp:alt_shift_toggle
 }
 
 get_primary_monitor() {
