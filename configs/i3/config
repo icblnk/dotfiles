@@ -162,7 +162,7 @@ exec_always --no-startup-id xsetroot -cursor_name left_ptr
 # Background color
 exec --no-startup-id xsetroot -solid "#333333"
 # Set wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.config/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/.files/wallpaper.jpg
 # Keyboard layout switch
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ua -option grp:alt_shift_toggle"
 # Keyboard rate
