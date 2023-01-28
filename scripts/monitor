@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+source ~/.bash_functions.sh
+if [[ $1 == "on" ]];
+then
+    monitor_on
+elif [[ $1 == "off" ]];
+then
+    monitor_off
+fi
