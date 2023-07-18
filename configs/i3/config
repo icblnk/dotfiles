@@ -165,7 +165,7 @@ exec --no-startup-id xsetroot -solid "#333333"
 # Set wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.files/wallpaper.jpg
 # Keyboard layout switch
-exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ua,se -option grp:alt_shift_toggle"
+exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ua -option grp:alt_shift_toggle"
 # Keyboard rate
 exec --no-startup-id "xset r rate 200"
 
@@ -175,6 +175,8 @@ bindsym Ctrl+Mod4+l exec ~/.scripts/lock_screen
 bindsym Mod4+Shift+p exec ~/.scripts/rofi-powermenu.sh
 # Monitor
 bindsym Mod4+Shift+m exec ~/.scripts/monitor on
+# Keyboard
+bindsym Mod4+Shift+s exec ~/.scripts/toggle_keyboard.sh
 
 # Multimedia keys
 # Pulse Audio controls
