@@ -17,6 +17,8 @@ set $term alacritty
 include ~/.config/sway/outputs
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.files/wallpaper.jpg fill
+bindswitch lid:on exec swaymsg output eDP-1 disable
+bindswitch lid:off exec swaymsg output eDP-1 enable
 #
 # Example configuration:
 #
