@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+icon="$HOME/.files/lock.png"
+tmpbg="/tmp/screen.png"
+
+grim "$tmpbg"
+magick convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
+magick convert $tmpbg $icon -gravity center -composite -matte $tmpbg
+
+swaylock -e -f -i "$tmpbg" --indicator-radius 128

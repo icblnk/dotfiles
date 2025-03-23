@@ -29,6 +29,11 @@ bindswitch lid:off exec swaymsg output eDP-1 enable
 ### Idle configuration
 #
 # Example configuration:
+exec swayidle -w \
+	timeout 300 '~/.scripts/lock_screen_sway' \
+	timeout 600 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"' \
+        before-sleep '~/.scripts/lock_screen_sway'
 #
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
@@ -51,7 +56,7 @@ input type:keyboard {
 input type:touchpad {
     dwt enabled
     tap enabled
-    natural_scroll enabled
+    natural_scroll disabled
     middle_emulation enabled
 }
 
@@ -68,13 +73,17 @@ bindsym $mod+Shift+q kill
 # Start your launcher
 bindsym $mod+d exec rofi -show run
 # Lock keybinding
-#bindsym Ctrl+Mod4+l exec ~/.scripts/lock_screen
+bindsym Ctrl+Mod4+l exec ~/.scripts/lock_screen_sway
 # Powermenu
 bindsym Mod4+Shift+p exec ~/.scripts/rofi-powermenu.sh
 # Monitor
 bindsym Mod4+Shift+m exec ~/.scripts/monitor on
 # Keyboard
 bindsym Mod4+Shift+s exec ~/.scripts/toggle_keyboard.sh
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -220,7 +229,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
+    bindsym Shift+Print exec grim - | wl-copy
 
 #
 # Status Bar:
