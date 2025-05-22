@@ -116,8 +116,8 @@ button:hover {
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 #battery.charging, #battery.plugged {
@@ -201,8 +201,8 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 #pulseaudio:hover {
