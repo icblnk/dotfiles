@@ -1,0 +1,14 @@
+[Unit]
+Description=Socat virtual PTY for UART over TCP communication with Ethernet based RPC
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/socat -d pty,raw,echo=0,link=/tmp/ttyRPC,ignoreeof
+Restart=always
+RestartSec=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
