@@ -8,12 +8,14 @@
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
+        "hyprland/workspaces",
         "sway/mode",
         "sway/scratchpad",
         "custom/media"
     ],
     "modules-center": [
-        "sway/window"
+        "sway/window",
+        "hyprland/window"
     ],
     "modules-right": [
         "mpd",
@@ -46,9 +48,25 @@
             "3": "",
             "4": "",
             "5": "",
-	    "6": "",
-	    "7": "",
-	    "10": "",
+            "6": "",
+            "7": "",
+            "10": "",
+            "urgent": "",
+            //"focused": "",
+            "default": ""
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "10": "",
             "urgent": "",
             //"focused": "",
             "default": ""
